@@ -32,18 +32,15 @@ export default React.createClass({
     let {onAddTask, onClear, tasks} = this.props;
     return (
       <div className="example-page">
-        <h1>Learning Flux</h1>
+        <h1>Save your favorite repos</h1>
         <p>
-          Below is a list of tasks you can implement to better grasp the patterns behind Flux.<br />
-          Most features are left unimplemented with clues to guide you on the learning process.
+          A dumb app to bookmark your favorite github repos
         </p>
 
         <Search />
 
         <TaskList tasks={tasks} />
 
-        <RaisedButton label="Add Task" primary={true} onClick={onAddTask} />
-        <RaisedButton label="Clear List" secondary={true} onClick={onClear} />
       </div>
     );
   }

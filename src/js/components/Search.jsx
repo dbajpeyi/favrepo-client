@@ -11,7 +11,7 @@ export default React.createClass({
   ,
   render() {
     return (
-      <TextField name="search" ref="search" onBlur={this.handleOnChange} />
+      <TextField name="search" ref="search" onBlur={this.handleOnChange}  placeholder="Type anything that interests you" />
     );
   }
 });
