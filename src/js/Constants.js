@@ -8,6 +8,7 @@ export default {
   ActionTypes: keyMirror({
     TASK_ADDED: null,
     SEARCHED : null,
+    RECEIVED_RESULT : null,
   }),
 
   ActionSources: keyMirror({

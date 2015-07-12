@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import TaskList from './TaskList.jsx';
+import RepoList from './RepoList.jsx';
 import Search from './Search.jsx'
 import {AppCanvas, RaisedButton, Styles} from 'material-ui';
 
@@ -7,14 +7,14 @@ const ThemeManager = new Styles.ThemeManager();
 
 export default React.createClass({
   propTypes: {
-    tasks: PropTypes.array.isRequired,
+    repos: PropTypes.array.isRequired,
     onAddTask: PropTypes.func.isRequired,
     onClear: PropTypes.func.isRequired
   },
 
   getDefaultProps() {
     return {
-      tasks: []
+      repos: []
     }
   },
 
@@ -29,7 +29,7 @@ export default React.createClass({
   },
 
   render() {
-    let {onAddTask, onClear, tasks} = this.props;
+    let {onAddTask, onClear, repos} = this.props;
     return (
       <div className="example-page">
         <h1>Save your favorite repos</h1>
@@ -39,7 +39,7 @@ export default React.createClass({
 
         <Search />
 
-        <TaskList tasks={tasks} />
+        <RepoList repos={repos} />
 
       </div>
     );

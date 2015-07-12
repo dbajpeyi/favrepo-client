@@ -1,4 +1,7 @@
+import ActionCreator from '../actions/RepoActionCreators';
+
 var request  = require('superagent');
+
 
 module.exports = {
   searchRepos : function(name){
@@ -6,7 +9,7 @@ module.exports = {
       .get('http://localhost:1337/search/' + name)
       .set('Accept', 'application/json')
       .end(function(err, res){
-        console.log(res);
+        ActionCreator.receiveRepo(res.body.items)
       });
     }
 };

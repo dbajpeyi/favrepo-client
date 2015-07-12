@@ -7,8 +7,10 @@ import assign from 'object-assign';
 let _data = [];
 
 // add private functions to modify data
-function addItem(title, completed=false) {
-  _data.push({title, completed});
+function addItem(items, completed=false) {
+  items.map(function(item){
+    _data.push(item);
+  });
 }
 
 // Facebook style store creation.
@@ -16,7 +18,7 @@ const RepoStore = assign({}, BaseStore, {
   // public methods used by Controller-View to operate on data
   getAll() {
     return {
-      tasks: _data
+      repos: _data
     };
   },
 
@@ -39,12 +41,19 @@ const RepoStore = assign({}, BaseStore, {
         case Constants.ActionTypes.SEARCHED:
         let repoName = action.text;
         if (repoName !== '') {
-          addItem(repoName);
           RepoStore.emitChange();
         }
         break;
 
-      // add more cases for other actionTypes...
+
+        case Constants.ActionTypes.RECEIVED_RESULT:
+        let items = action.items;
+        console.log('receiving',items);
+        if (items.length) {
+          addItem(items);
+          RepoStore.emitChange();
+        }
+        break;
     }
   })
 });

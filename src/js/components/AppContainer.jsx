@@ -32,12 +32,12 @@ export default React.createClass({
   },
 
   render() {
-    let {tasks} = this.state;
+    let {repos} = this.state;
     return (
       <App
         onAddTask={this.handleAddTask}
         onClear={this.handleClear}
-        tasks={tasks} />
+        repos={repos} />
     );
   }
 });
