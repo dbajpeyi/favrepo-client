@@ -13,6 +13,10 @@ function addItem(items, completed=false) {
   });
 }
 
+function emptyItems(){
+  _data.length = 0;
+};
+
 // Facebook style store creation.
 const RepoStore = assign({}, BaseStore, {
   // public methods used by Controller-View to operate on data
@@ -21,6 +25,7 @@ const RepoStore = assign({}, BaseStore, {
       repos: _data
     };
   },
+
 
   // register store with dispatcher, allowing actions to flow through
   dispatcherIndex: Dispatcher.register(function(payload) {
@@ -39,6 +44,7 @@ const RepoStore = assign({}, BaseStore, {
         break;
 
         case Constants.ActionTypes.SEARCHED:
+          emptyItems();
         let repoName = action.text;
         if (repoName !== '') {
           RepoStore.emitChange();
