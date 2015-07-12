@@ -1,6 +1,6 @@
 import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
-
+import Services from  '../utils/Services'
 export default {
   addItem(text) {
     Dispatcher.handleViewAction({
@@ -14,5 +14,7 @@ export default {
       type : Constants.ActionTypes.SEARCHED,
       text : text
     });
+
+    Services.searchRepos(text);
   }
 };
