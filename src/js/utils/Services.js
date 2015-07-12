@@ -11,5 +11,22 @@ module.exports = {
       .end(function(err, res){
         ActionCreator.receiveRepo(res.body.items)
       });
+    },
+
+    saveRepo : function(item){
+    	var item = item.repo;
+    	request
+    		.post('http://localhost:1337/repo/save/')
+    		.send({
+    			name : item.full_name,
+    			user : item.owner.html_url,
+    			forks : item.forks,
+    			stars: item.stargazers_count,
+    			url : item.clone_url,
+    		})
+    		.set('Accept', 'application/json')
+    		.end(function(err,res){
+    			console.log(res);
+    		});
     }
 };

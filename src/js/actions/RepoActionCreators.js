@@ -18,6 +18,21 @@ export default {
     Services.searchRepos(text);
   },
 
+  saveRepo(item){
+    Dispatcher.handleViewAction({
+      type: Constants.ActionTypes.SAVED,
+      item : item
+    });
+    Services.saveRepo(item);
+  },
+
+  saveDone(item){
+    Dispatcher.handleViewAction({
+      type : Constants.ActionTypes.SAVE_DONE,
+      item : item
+    });
+  },
+
   receiveRepo(items){
     Dispatcher.handleViewAction({
       type : Constants.ActionTypes.RECEIVED_RESULT,

@@ -9,10 +9,6 @@ export default React.createClass({
     };
   },
 
-  handleOnClick(){
-    console.log(this.props);
-  },
-
   render() {
     let {repos} = this.props;
     return (

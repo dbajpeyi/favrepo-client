@@ -9,6 +9,8 @@ export default {
     TASK_ADDED: null,
     SEARCHED : null,
     RECEIVED_RESULT : null,
+    SAVED : null,
+    SAVE_DONE:null,
   }),
 
   ActionSources: keyMirror({

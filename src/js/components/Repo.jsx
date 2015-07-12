@@ -5,7 +5,9 @@ import {Checkbox, ListItem, List, RaisedButton} from 'material-ui';
 export default React.createClass({
 
   handleOnClick() {
-  	console.log(this.props);
+  	if (this.props) {
+      ActionCreator.saveRepo(this.props);
+    }
   },
 
   render() {

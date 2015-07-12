@@ -60,6 +60,14 @@ const RepoStore = assign({}, BaseStore, {
           RepoStore.emitChange();
         }
         break;
+
+        case Constants.ActionTypes.SAVED:
+        let item = action.item;
+        console.log('receiving',item);
+        if (item) {
+          RepoStore.emitChange();
+        }
+        break;
     }
   })
 });
