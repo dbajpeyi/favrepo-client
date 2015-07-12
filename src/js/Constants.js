@@ -11,6 +11,8 @@ export default {
     RECEIVED_RESULT : null,
     SAVED : null,
     SAVE_DONE:null,
+    GOTALL:null,
+    ALL_DONE:null,
   }),
 
   ActionSources: keyMirror({

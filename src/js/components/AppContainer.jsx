@@ -3,6 +3,7 @@ import RepoStore from '../stores/RepoStore';
 import ActionCreator from '../actions/RepoActionCreators';
 import App from './App.jsx';
 
+
 export default React.createClass({
   _onChange() {
     this.setState(RepoStore.getAll());
@@ -34,10 +35,12 @@ export default React.createClass({
   render() {
     let {repos} = this.state;
     return (
+      
       <App
         onAddTask={this.handleAddTask}
         onClear={this.handleClear}
         repos={repos} />
+
     );
   }
 });

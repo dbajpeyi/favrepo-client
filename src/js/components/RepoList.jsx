@@ -12,7 +12,7 @@ export default React.createClass({
   render() {
     let {repos} = this.props;
     return (
-      <ul id="task-list">
+      <ul >
         {repos.map(repo =>
          <Repo repo={repo}/>
         )}

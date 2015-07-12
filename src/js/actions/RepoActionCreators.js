@@ -33,6 +33,20 @@ export default {
     });
   },
 
+  getAll(){
+    Dispatcher.handleViewAction({
+      type:Constants.ActionTypes.GOTALL
+    });
+    Services.favRepos();
+  },
+
+  getAllDone(result){
+    Dispatcher.handleViewAction({
+      type: Constants.ActionTypes.ALL_DONE,
+      items : result,
+    });
+  },
+
   receiveRepo(items){
     Dispatcher.handleViewAction({
       type : Constants.ActionTypes.RECEIVED_RESULT,

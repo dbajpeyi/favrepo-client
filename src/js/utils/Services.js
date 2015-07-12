@@ -1,5 +1,4 @@
 import ActionCreator from '../actions/RepoActionCreators';
-
 var request  = require('superagent');
 
 
@@ -26,7 +25,17 @@ module.exports = {
     		})
     		.set('Accept', 'application/json')
     		.end(function(err,res){
-    			console.log(res);
+    			ActionCreator.saveDone(res.body.item);	
     		});
+    },
+
+    favRepos : function(){
+    	request
+    		.get('http://localhost:1337/repos/')
+    		.set('Accept', 'application/json')
+    		.end(function(err, res){
+    			res.body;
+    			ActionCreator.getAllDone(res.body);
+    		});	
     }
 };

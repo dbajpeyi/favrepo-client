@@ -5,13 +5,20 @@ import assign from 'object-assign';
 
 // data storage
 let _data = [];
+let _favs = [];
 
 // add private functions to modify data
 function addItem(items, completed=false) {
   items.map(function(item){
     _data.push(item);
   });
-}
+};
+
+function addFavs(items, completed=false) {
+  items.map(function(item){
+    _favs.push(item);
+  });
+};
 
 function emptyItems(){
   _data.length = 0;
@@ -26,6 +33,11 @@ const RepoStore = assign({}, BaseStore, {
     };
   },
 
+  getAllFavs() {
+    return {
+      favs : _favs
+    };
+  },
 
   // register store with dispatcher, allowing actions to flow through
   dispatcherIndex: Dispatcher.register(function(payload) {
@@ -65,6 +77,15 @@ const RepoStore = assign({}, BaseStore, {
         let item = action.item;
         console.log('receiving',item);
         if (item) {
+          RepoStore.emitChange();
+        }
+        break;
+
+        case Constants.ActionTypes.ALL_DONE:
+        console.log(action.items);
+        let favs = action.items;
+        if (favs.length) {
+          addFavs(favs);
           RepoStore.emitChange();
         }
         break;

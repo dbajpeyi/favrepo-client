@@ -42,6 +42,8 @@
     "material-ui-sass": "^0.7.5",
     "object-assign": "^3.0.0",
     "react": "^0.13.3",
+    "react-async": "^2.1.0",
+    "react-router-component": "^0.26.0",
     "superagent": "^1.2.0"
   }
 }
