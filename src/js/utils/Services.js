@@ -25,7 +25,7 @@ module.exports = {
     		})
     		.set('Accept', 'application/json')
     		.end(function(err,res){
-    			ActionCreator.saveDone(res.body.item);	
+    			ActionCreator.saveDone(res.body);	
     		});
     },
 

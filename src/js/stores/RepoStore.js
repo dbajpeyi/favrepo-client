@@ -81,6 +81,13 @@ const RepoStore = assign({}, BaseStore, {
         }
         break;
 
+        case Constants.ActionTypes.SAVE_DONE:
+        let another_item = action.item;
+        if (another_item) {
+          RepoStore.emitChange();
+        }
+        break;
+
         case Constants.ActionTypes.ALL_DONE:
         console.log(action.items);
         let favs = action.items;
