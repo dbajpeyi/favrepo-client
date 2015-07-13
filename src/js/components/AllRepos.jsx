@@ -10,7 +10,7 @@ export default React.createClass({
   getInitialState() {
     return {
       'favs' : []
-    };
+    }
   },
 
   componentDidMount() {
@@ -18,19 +18,31 @@ export default React.createClass({
     request.get('http://localhost:1337/repos/')
       .set('Accept', 'application/json')
       .end(function(err, res){
-        console.log(res.body);
-      _this.setState(res.body);
+      _this.setState({
+        'favs' :  res.body
+      });
     })
   },
 
 
   render() {
-    let {favs} = this.state;
+    console.log(this.state);
     return (
       <div className="example-page">
         <h1>Save your favorite repos</h1>
           <p>Your saved repos</p>
-          {this.state}
+          <ul>
+            {this.state.favs.map(repo =>
+              <li id="task-list">
+                <p>Name : {repo.name}</p>
+                <p>User : {repo.user}</p>
+                <p>Stars: {repo.stars}</p>
+                <p>Forks: {repo.forks}</p>
+                <p>Git url: <a href={repo.url}>{repo.url}</a></p>
+              </li>
+            )}
+          </ul>
+ 
       </div>
     );
   }
